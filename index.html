@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102b4e">
+  <title>CBT Manajemen Perkantoran</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="CBT Manajemen Perkantoran">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><path d="M8 7.5A3.5 3.5 0 0 1 11.5 4H38v35H11.5A3.5 3.5 0 0 0 8 42V7.5Z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M8 11h26M15 18h15M15 25h15M15 32h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+      </span>
+      <span><strong>CBT<span class="brand-accent">Office</span></strong><small>Ujian Manajemen Perkantoran</small></span>
+    </a>
+    <span class="top-tag"><span class="live-dot"></span> Ujian Online</span>
+  </header>
+
+  <main class="main-wrap">
+    <section id="homePage" class="page-card home-card">
+      <div class="hero-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64"><rect x="12" y="7" width="40" height="50" rx="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M22 21h20M22 30h20M22 39h12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="m23 48 5 4 10-10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <p class="eyebrow">SELAMAT DATANG</p>
+      <h1>Ujian Manajemen<br><span>Perkantoran</span></h1>
+      <p class="intro">Lengkapi identitas terlebih dahulu sebelum memulai ujian. Bacalah setiap soal dengan teliti dan periksa kembali jawaban Anda.</p>
+      <div class="exam-info">
+        <div><span class="info-icon">20</span><span><b>20 Soal</b><small>Pilihan ganda</small></span></div>
+        <div><span class="info-icon">100</span><span><b>Skor Maksimal</b><small>Nilai akhir 1–100</small></span></div>
+        <div><span class="info-icon">✓</span><span><b>Mandiri</b><small>Kerjakan dengan jujur</small></span></div>
+      </div>
+      <form id="studentForm" class="student-form">
+        <div class="form-heading"><h2>Identitas Peserta</h2><p>Isi semua kolom di bawah ini.</p></div>
+        <label for="studentName">Nama lengkap</label>
+        <input id="studentName" name="studentName" type="text" placeholder="Masukkan nama lengkap" maxlength="80" required>
+        <div class="form-row">
+          <div><label for="studentClass">Kelas</label><input id="studentClass" name="studentClass" type="text" placeholder="Contoh: XI MPLB 1" maxlength="40" required></div>
+          <div><label for="schoolName">Nama sekolah</label><input id="schoolName" name="schoolName" type="text" placeholder="Masukkan nama sekolah" maxlength="100" required></div>
+        </div>
+        <div class="notice"><span>ⓘ</span><p>Beberapa soal dapat memiliki lebih dari satu jawaban benar. Untuk soal tersebut, pilih semua jawaban yang tepat.</p></div>
+        <button class="btn btn-primary btn-full" type="submit">Mulai Mengerjakan <span>→</span></button>
+      </form>
+    </section>
+
+    <section id="quizPage" class="page-card quiz-card hidden">
+      <div class="quiz-head">
+        <div><p class="eyebrow">LEMBAR UJIAN</p><h1>Manajemen Perkantoran</h1><p id="quizStudent" class="muted"></p></div>
+        <div class="timer-chip"><span class="live-dot"></span> Mode ujian aktif</div>
+      </div>
+      <div class="progress-line"><div id="progressBar"></div></div>
+      <div class="progress-meta"><span id="questionCount">Soal 1 dari 20</span><span id="answeredCount">0/20 terjawab</span></div>
+      <div id="questionContainer"></div>
+      <div class="quiz-footer">
+        <button id="prevBtn" class="btn btn-secondary" type="button">← Sebelumnya</button>
+        <div class="quiz-footer-right"><button id="nextBtn" class="btn btn-primary" type="button">Soal Berikutnya →</button><button id="finishBtn" class="btn btn-success hidden" type="button">Selesai &amp; Lihat Nilai ✓</button></div>
+      </div>
+      <div id="questionNav" class="question-nav" aria-label="Navigasi soal"></div>
+    </section>
+
+    <section id="resultPage" class="page-card result-card hidden">
+      <div class="result-symbol" id="resultSymbol">✓</div>
+      <p class="eyebrow">UJIAN SELESAI</p>
+      <h1>Hasil Ujian Anda</h1>
+      <p class="intro">Terima kasih telah menyelesaikan ujian Manajemen Perkantoran.</p>
+      <div class="student-summary">
+        <div><small>Nama peserta</small><b id="resultName">-</b></div>
+        <div><small>Kelas</small><b id="resultClass">-</b></div>
+        <div class="school-summary"><small>Nama sekolah</small><b id="resultSchool">-</b></div>
+      </div>
+      <div class="score-panel">
+        <p>SKOR AKHIR</p><div class="score-number"><span id="finalScore">0</span><small>/100</small></div><div id="scoreMessage" class="score-message">Terus berlatih!</div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-box correct"><span class="stat-icon">✓</span><div><strong id="correctCount">0</strong><small>Jawaban benar</small></div></div>
+        <div class="stat-box wrong"><span class="stat-icon">×</span><div><strong id="wrongCount">0</strong><small>Jawaban salah</small></div></div>
+        <div class="stat-box total"><span class="stat-icon">#</span><div><strong>20</strong><small>Total soal</small></div></div>
+      </div>
+      <div id="reviewSection" class="review-section">
+        <button id="reviewToggle" class="review-toggle" type="button" aria-expanded="false">Lihat pembahasan jawaban <span>＋</span></button>
+        <div id="reviewList" class="review-list hidden"></div>
+      </div>
+      <div class="result-actions"><button id="retryBtn" class="btn btn-primary" type="button">Ulangi Ujian ↻</button><button id="homeBtn" class="btn btn-secondary" type="button">Kembali ke Home</button></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">Dibuat oleh <strong>Ferdi</strong> <span>•</span> <span id="currentYear"></span></footer>
+
+  <div id="warningOverlay" class="warning-overlay hidden" role="alertdialog" aria-modal="true" aria-labelledby="warningTitle">
+    <div class="warning-box">
+      <div class="warning-icon">!</div>
+      <p class="eyebrow warning-eyebrow">PERINGATAN UJIAN</p>
+      <h2 id="warningTitle">Aktivitas tab terdeteksi</h2>
+      <p>Anda meninggalkan halaman ujian atau membuka tab/jendela lain. Demi menjaga integritas ujian, sesi ini akan diakhiri dan Anda akan dikembalikan ke halaman input data.</p>
+      <div class="countdown-ring"><span id="countdownValue">10</span><small>detik</small></div>
+      <p class="warning-small">Kembali ke halaman input dalam <b id="countdownText">10</b> detik…</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
